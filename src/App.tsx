@@ -1,18 +1,13 @@
-const welcome = {
-  greeting: "Hey",
-  title: "React",
-};
+import { List } from "./list";
+import { Search } from "./search";
 
 export function App() {
   return (
     <div>
-      <h1>
-        {welcome.greeting} {welcome.title}
-      </h1>
-      <label>
-        Age
-        <input />
-      </label>
+      <h1>My Hacker Stories</h1>
+      <Search />
+      <hr />
+      <List />
     </div>
   );
 }
