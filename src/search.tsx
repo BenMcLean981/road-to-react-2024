@@ -1,8 +1,21 @@
+import { useState } from "react";
+
 export function Search() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearchTerm(event.target.value);
+  }
+
   return (
-    <label>
-      Age
-      <input />
-    </label>
+    <div>
+      <label>
+        Age
+        <input onChange={handleChange} />
+      </label>
+      <p>
+        Searching for <strong>{searchTerm}</strong>
+      </p>
+    </div>
   );
 }
