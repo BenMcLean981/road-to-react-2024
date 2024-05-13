@@ -1,17 +1,19 @@
-import { useState } from "react";
+export type SearchProps = {
+  searchTerm: string;
+  onSearch: (s: string) => void;
+};
 
-export function Search() {
-  const [searchTerm, setSearchTerm] = useState("");
+export function Search(props: SearchProps) {
+  const { searchTerm, onSearch } = props;
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setSearchTerm(event.target.value);
+    onSearch(event.target.value);
   }
 
   return (
     <div>
       <label>
-        Age
-        <input onChange={handleChange} />
+        <input onChange={handleChange} value={props.searchTerm} />
       </label>
       <p>
         Searching for <strong>{searchTerm}</strong>
