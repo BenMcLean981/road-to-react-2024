@@ -1,4 +1,4 @@
-import { Item } from "./Item";
+import { StoryItem } from "./Item";
 
 export type Story = {
   title: string;
@@ -11,15 +11,19 @@ export type Story = {
 
 export type ListProps = {
   stories: ReadonlyArray<Story>;
+  onDelete: (s: Story) => void;
 };
 
 export function List(props: ListProps) {
-  const { stories } = props;
+  const { stories, onDelete } = props;
 
   return (
     <ul>
       {stories.map((s) => (
-        <Item key={s.objectID} story={s} />
+        <li key={s.objectID}>
+          <StoryItem story={s} />{" "}
+          <button onClick={() => onDelete(s)}>Delete</button>
+        </li>
       ))}
     </ul>
   );

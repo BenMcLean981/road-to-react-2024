@@ -4,19 +4,16 @@ export type ItemProps = {
   story: Story;
 };
 
-export function Item(props: ItemProps) {
+export function StoryItem(props: ItemProps) {
   const { story } = props;
 
   return (
-    <li>
+    <>
       <span>
         <a href={story.url}>{story.title}</a>
-      </span>
-      <span>{story.author}</span>
-      <span>{story.num_comments}</span>
-      <span>{story.points}</span>
-      {story.title}
-      {story.author}
-    </li>
+      </span>{" "}
+      <span>{story.author}</span> <span>{story.num_comments}</span>{" "}
+      <span>{story.points}</span> {story.title} {story.author}
+    </>
   );
 }
