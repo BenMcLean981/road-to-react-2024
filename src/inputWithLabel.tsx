@@ -1,4 +1,9 @@
-import { HTMLInputTypeAttribute, useEffect, useRef } from "react";
+import {
+  HTMLInputTypeAttribute,
+  PropsWithChildren,
+  useEffect,
+  useRef,
+} from "react";
 
 export type InputWithLabelProps = {
   value: string;
@@ -7,7 +12,7 @@ export type InputWithLabelProps = {
   type?: HTMLInputTypeAttribute;
 };
 
-export function InputWithLabel(props: InputWithLabelProps) {
+export function InputWithLabel(props: PropsWithChildren<InputWithLabelProps>) {
   const { value, onChange, isFocused, type } = props;
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -21,6 +26,7 @@ export function InputWithLabel(props: InputWithLabelProps) {
   return (
     <>
       <label>
+        {props.children}
         <input
           ref={inputRef}
           type={type}
